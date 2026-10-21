@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <meta name="author" content="Andres Felipe Estepa">
+    <meta name="description" content="Formulario">
+    <meta property="og:title" content="formulario Andres Felipe Estepa">
+    <meta property="og:url" content="https://andresfelipe634.github.io/proyecto__7__/">
+    <link rel="icon" href="icono.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+
+    <!-- aca armo el contenedor gande pa dividir la pantalla en 2 -->
+    <main class="contenedor-principal">
+        
+        <!-- parte izquierda donde va el form de datos -->
+        <form class="formulario-perfil" action="#" novalidate>
+            
+     <div class="grupo-input">
+                <!-- muy importante el 'for' en el label pa la accesibilidad -->
+          <label for="nombre-completo" class="etiqueta-form">Nombre Completo</label>
+             <input type="text" id="nombre-completo" class="campo-texto" placeholder="¿Cómo deberíamos llamarte?" aria-required="true">
+            </div>
+
+       <div class="grupo-input">
+         <label for="correo-usuario" class="etiqueta-form">Correo Electrónico</label>
+             <!-- le pongo el aria-invalid en true pq decia el pdf q tocaba simular un error aca -->
+          <input type="email" id="correo-usuario" class="campo-texto campo-error" value="john@doe.com" aria-required="true" aria-invalid="true" aria-describedby="error-correo">
+             <!-- este id se conecta con el aria-describedby de arriba pa q el lector de pantalla lo lea -->
+          <span id="error-correo" class="texto-error" role="alert">Este correo ya está en uso</span>
+            </div>
+
+        <div class="grupo-input">
+               <label for="clave-usuario" class="etiqueta-form">Ingresa tu Contraseña</label>
+           <div class="contenedor-clave">
+            <input type="password" id="clave-usuario" class="campo-texto" value="XXXXXXXX" aria-required="true">
+              <!-- boton type button pa q no mande el form por error, es solo pa ver la clave -->
+                  <button type="button" class="btn-ojito" aria-label="Mostrar contraseña">
+               <!-- un svg de ojito basico -->
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono-ojo"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+          </div>
+            </div>
+
+          <div class="grupo-input">
+          <label for="confirma-clave" class="etiqueta-form">Confirma Contraseña</label>
+              <div class="contenedor-clave">
+            <input type="password" id="confirma-clave" class="campo-texto" value="XXXXXXXX" aria-required="true">
+          <button type="button" class="btn-ojito" aria-label="Mostrar contraseña">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono-ojo"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+             </button>
+                </div>
+          </div>
+
+            <button type="submit" class="btn-enviar">Actualizar Perfil</button>
+        </form>
+
+      <!-- parte derecha: el circulo y la lista de tareas -->
+      <aside class="panel-progreso">
+      <!-- circulo hecho con puro css pa no usar imagenes -->
+            <div class="circulo-grafico" role="meter" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso del perfil al 65 por ciento">
+                <span class="porcentaje-texto">65%</span>
+            </div>
+            
+            <h2 class="titulo-progreso">Completitud del Perfil</h2>
+          
+            <ul class="lista-tareas" aria-label="Requisitos para completar el perfil">
+          <li class="tarea-lista"><del>Crear Cuenta</del></li>
+            <li class="tarea-lista"><del>Actualizar el progreso del roadmap</del></li>
+             <li class="tarea-lista"><del>Configurar Perfil Público</del></li>
+               <li class="tarea-pendiente">Completa tu primer proyecto</li>
+           <li class="tarea-pendiente">Invita a tus amigos</li>
+            </ul>
+        </aside>
+
+    </main>
+
+
+
+    
+</body>
+</html>

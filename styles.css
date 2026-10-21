@@ -1,0 +1,215 @@
+/* estilos globales pa resetear el doc y usar border-box */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* le puse un fondo super clarito pa q el cuadro blanco resalte mas */
+    background-color: #f0f4f8; 
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* el grid principal pa q quede lado a lado en compu */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 900px;
+    width: 100%;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+.formulario-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.etiqueta-form {
+    font-size: 15px;
+    font-weight: 500;
+    color: #334155;
+}
+
+.campo-texto {
+    padding: 12px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+/* aca le meto el focus super marcado pq eso es vital pa la accesibilidad q pide el profe */
+.campo-texto:focus {
+    outline: none;
+    border-color: #0284c7; /* cambie al color azul personalizado */
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.campo-texto::placeholder {
+    color: #94a3b8;
+}
+
+/* estilo pal error (aria-invalid) */
+.campo-error {
+    border-color: #e11d48;
+    color: #e11d48;
+}
+.campo-error:focus {
+    border-color: #e11d48;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+}
+
+.texto-error {
+    font-size: 13px;
+    color: #e11d48;
+    margin-top: 2px;
+}
+
+/* esto es pa meter el ojito adentro del input sin romper nada */
+.contenedor-clave {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn-ojito {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* el focus del ojito si navegan con la tecla TAB */
+.btn-ojito:focus-visible {
+    outline: 2px solid #0284c7;
+    background-color: #f1f5f9;
+}
+
+.icono-ojo {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-enviar {
+    background-color: #0f172a; /* un azul marino casi negro pa variar del ejemplo */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: #1e293b;
+}
+
+.btn-enviar:focus-visible {
+    outline: 3px solid #0284c7;
+    outline-offset: 2px;
+}
+
+/* --- ESTILOS DEL PANEL DE PROGRESO --- */
+.panel-progreso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* le puse un fondo gris azulado atras pa q parezca tarjeta */
+    background-color: #f8fafc;
+    padding: 30px 20px;
+    border-radius: 12px;
+}
+
+/* el truco de css pa hacer la grafica de dona sin usar imagenes */
+.circulo-grafico {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#0284c7 65%, #cbd5e1 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+/* el hueco blanco del medio de la grafica */
+.circulo-grafico::before {
+    content: "";
+    width: 104px;
+    height: 104px;
+    background-color: #f8fafc;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.porcentaje-texto {
+    position: relative;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.titulo-progreso {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.lista-tareas {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lista-tareas li {
+    font-size: 14px;
+}
+
+.tarea-lista {
+    color: #94a3b8;
+}
+
+.tarea-pendiente {
+    color: #0f172a;
+    font-weight: 500;
+}
+
+/* hacerlo responsive pa celus pq ajá */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+    }
+}
